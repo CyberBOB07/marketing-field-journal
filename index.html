@@ -3792,12 +3792,31 @@
   try{
     var links = Array.from(document.querySelectorAll('nav.toc a[data-nav]'));
     var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+    // держим отметку текущего занятия в поле зрения самой панели: на узком экране центрируем по горизонтали, на широком двигаем столбец по вертикали; страницу не трогаем
+    var tocNav=document.querySelector('nav.toc'), tocOl=tocNav&&tocNav.querySelector('ol');
+    var tocReduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var revealActive=function(){
+      var a=tocNav&&tocNav.querySelector('a.active'); if(!a) return;
+      var horiz=tocOl.scrollWidth>tocOl.clientWidth+1, c=horiz?tocOl:tocNav;
+      var ar=a.getBoundingClientRect(), cr=c.getBoundingClientRect(), beh=tocReduce?'auto':'smooth';
+      if(horiz){
+        var dx=(ar.left-cr.left)-(cr.width-ar.width)/2;
+        if(Math.abs(dx)>2) c.scrollTo({left:c.scrollLeft+dx, behavior:beh});
+      } else if(c.scrollHeight>c.clientHeight+1){
+        if(ar.top<cr.top+40||ar.bottom>cr.bottom-40){
+          var dy=(ar.top-cr.top)-(cr.height-ar.height)/2;
+          c.scrollTo({top:c.scrollTop+dy, behavior:beh});
+        }
+      }
+    };
+    var rv; window.addEventListener('resize',function(){ clearTimeout(rv); rv=setTimeout(revealActive,200); });
     if('IntersectionObserver' in window && targets.length){
       var io = new IntersectionObserver(function(entries){
         entries.forEach(function(entry){
           if(entry.isIntersecting){
             var id = '#' + entry.target.id;
             links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === id); });
+            revealActive();
           }
         });
       }, { rootMargin: '-20% 0px -70% 0px' });
