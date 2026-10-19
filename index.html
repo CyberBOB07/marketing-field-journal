@@ -21,6 +21,12 @@
   #jtheme .i-sun{ display:none; }
   :root[data-theme="dark"] #jtheme .i-sun{ display:block; }
   :root[data-theme="dark"] #jtheme .i-moon{ display:none; }
+  html h1.title{ font-family:'Oswald','Arial Narrow',var(--font-display); font-weight:500; font-size:min(2.9rem,6.6vw); line-height:1.1; letter-spacing:.01em; white-space:nowrap; margin:0 0 12px; }
+  html .subtitle span{ display:block; }
+  html .meta-row{ flex-direction:column; flex-wrap:nowrap; gap:6px; }
+  .meta-row .nw{ white-space:nowrap; }
+  .meta-row .dates a{ color:var(--accent-strong); text-decoration:none; font-weight:500; }
+  .meta-row .dates a:hover{ text-decoration:underline; text-underline-offset:3px; }
   .contact-line{ margin:8px 0 0; font-size:.9rem; color:var(--ink-soft); }
   .contact-line a{ color:var(--accent-strong); font-weight:600; }
   ::highlight(jfind){ background-color:var(--accent-tint); color:var(--ink); }
@@ -41,7 +47,7 @@
 <title>Полевой журнал маркетолога</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Oswald:wght@500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -508,11 +514,11 @@
       <div class="brand"><span class="dot"></span> ПРОФЕССИОНАЛЬНЫЙ ИНТЕРНЕТ-МАРКЕТИНГ · КОНСПЕКТ</div>
     </div>
     <h1 class="title">Полевой журнал маркетолога</h1>
-    <p class="subtitle">Личная выжимка занятий курса: что объяснила преподаватель, какими фреймворками пользоваться и что делать руками - по порядку, шаг за шагом.</p>
+    <p class="subtitle"><span>Личная выжимка занятий курса: что объяснила преподаватель, какими фреймворками пользоваться&nbsp;и</span> <span>что делать руками - по&nbsp;порядку, шаг&nbsp;за&nbsp;шагом.</span></p>
     <div class="meta-row">
-      <span><b>Курс:</b> Профессиональный интернет-маркетинг (Mk-IM1-75-26)</span>
+      <span><b>Курс:</b> Профессиональный <span class="nw">интернет-маркетинг (Mk-IM1-75-26)</span></span>
       <span><b>Преподаватель:</b> Татьяна Лагунова</span>
-      <span><b>Занятия:</b> 10.08 · 12.08 · 17.08 · 24.08 · 26.08 · 31.08 · 02.09 · 07.09 · 14.09 · 16.09 · 21.09 · 23.09 · 28.09 · 30.09 · 05.10 · 07.10 · 12.10 · 14.10.2026</span>
+      <span class="dates"><b>Занятия:</b> <a href="#l1" title="Перейти к занятию 1">10.08</a> · <a href="#l2" title="Перейти к занятию 2">12.08</a> · <a href="#l3" title="Перейти к занятию 3">17.08</a> · <a href="#l4" title="Перейти к занятию 4">24.08</a> · <a href="#l5" title="Перейти к занятию 5">26.08</a> · <a href="#l6" title="Перейти к занятию 6">31.08</a> · <a href="#l7" title="Перейти к занятию 7">02.09</a> · <a href="#l8" title="Перейти к занятию 8">07.09</a> · <a href="#l9" title="Перейти к занятию 9">14.09</a> · <a href="#l10" title="Перейти к занятию 10">16.09</a> · <a href="#l11" title="Перейти к занятию 11">21.09</a> · <a href="#l12" title="Перейти к занятию 12">23.09</a> · <a href="#l13" title="Перейти к занятию 13">28.09</a> · <a href="#l14" title="Перейти к занятию 14">30.09</a> · <a href="#l15" title="Перейти к занятию 15">05.10</a> · <a href="#l16" title="Перейти к занятию 16">07.10</a> · <span class="nw"><a href="#l17" title="Перейти к занятию 17">12.10</a> · <a href="#l18" title="Перейти к занятию 18">14.10.2026</a></span></span>
     </div>
   </header>
 
